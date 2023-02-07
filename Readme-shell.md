@@ -149,74 +149,87 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 
 	![Switch Historical data analysis on.](media/power-bi-6.png)
 	
-11. **Enter** ‘Occupancy’ as dataset name and **enter** the column names in “values from stream” option from list below  and **click** on create button: 
+11. **Enter** ‘ADX Miami and San’ as dataset name and **enter** the column names in “values from stream” option from list below  and **click** on create button: 
 
 	| Field Name                        	| Type     |
 	|---------------------------------------|----------|
-	| BatteryLevel 				| number |
-	| visitors_cnt				| number |
-	| visitors_in				| number |
-	| visitors_out				| number |
-	| avg_aisle_time_spent			| number |
-	| avg_dwell_time			| number |
-	| DeviceID				| text |
-	| StoreId				| text |
-	| City					| text |
+	| City 				| text |
+	| target_avg_dur_in_store				| number |
+	| target_checkout_time				| number |
+	| target_dwell_time				| number |
+	| aisle_dwell_time_may			| number |
+	| aisle_dwell_time_sep			| number |
+	| aisle_dwell_time_oct				| number |
+	| aisle_dwell_time_nov				| number |
+	| aisle_dwell_time_dec					| number |
+	| avg_checkout_time_may			| number |
+	| avg_checkout_time_sep				| number |
+	| avg_checkout_time_oct				| number |
+	| avg_checkout_time_nov			| number |
+	| avg_checkout_time_dec			| number |
+	| avg_dur_in_store_may				| number |
+	| avg_dur_in_store_sep				| number |
+	| avg_dur_in_store_oct					| number |
+	| avg_dur_in_store_nov			| number |
+	| avg_dur_in_store_dec				| number |
 	| EnqueuedTimeUTC			| datetime |
 	| RecordedonUTC				| datetime |
 
 	
 	![Create new streaming dataset.](media/power-bi-7.png)
 
-12. **Copy** the push url of dataset ‘Occupancy’ and place it in a notepad for later use.
+12. **Copy** the push url of dataset ‘ADX Miami and San’ and place it in a notepad for later use.
 
 	![Provide the Push Url.](media/power-bi-8.png)
 	
-13. Similarly add two more datasets namely "Thermostat-Realtime" and "Video-Analytics-Realtime" and copy the push url for them respectively and place it in a notepad.
+13. Similarly add one more dataset, "CCO Realtime", copy the push url and place it in a notepad.
 
 	| Field Name                        	| Type     |
 	|---------------------------------------|----------|
-	| EnqueuedTimeUTC 			| datetime |
-	| DeviceId				| text |
-	| StoreId				| text |
-	| BatteryLevel				| number |
-	| Temp					| number |
-	| City					| text |
-	| Temp_UoM				| text |
-	
-	
-	| Field Name                        	| Type     |
-	|---------------------------------------|----------|
-	| Appliances 				| number |
-	| FathersdaySale			| number |
-	| BacktoSchool				| number |
-	| NewStoreOpening			| number |
-	| FashionableYou			| number |
-	| Recordedon				| datetime |
-	
-14. **Navigate** to [https://www.videoindexer.ai/](https://www.videoindexer.ai/).
+	| NPS 			| number |
+	| TargetNPS				| number |
+	| AccountOpeningTime				| number |
+	| TargetAccountOpeningTime				| number |
+	| RequestsWithinSLA					| number |
+	| TargetRequestsWithinSLA					| number |
+	| SocialSentiment				| text |
+	| RecordedOn 				| datetime |
+	| SocialSentimentAfter			| text |
+	| TargetRequestsWithinSLAAfter				| number |
+	| RequestsWithinSLAAfter			| number |
+	| TargetAccountOpeningTimeAfter			| number |
+	| AccountOpeningTimeAfter				| number |
+	| TargetNPSAfter 			| number |
+	| NPSAfter				| number |
+	| ChurnBeforeTarget				| number |
+	| ChurnMid				| number |
+	| ChurnMidTarget					| number |
+	| ChurnAfter					| number |
+	| ChurnAfterTarget				| number |
+	| ChurnNov 				| number |
+	| ChurnNovTarget			| number |
+	| LoyalCustomerBefore				| number |
+	| LoyalCustomerMid			| number |
+	| LoyalCustomerAfter			| number |
+	| NumberofVisitorsBefore				| number |
+	| NumberofVisitorsMid					| number |
+	| NumberofVisitorsAfter					| number |
+	| NumberofVisitorsTarget				| number |
+	| LoyalCustomerTargetBefore 				| number |
+	| LoyalCustomerTargetMid			| number |
+	| LoyalCustomerTargetAfter				| number |
+	| ChurnBefore			| number |
+	| Sensor_Per_Store_Sep			| number |
+	| Sensor_Per_Store_Oct				| number |
+	| Sensor_Per_Store_Nov			| number |
+	| Sensor_Per_Store_Dec				| number |
+	| Sensor_Per_Store_Bef_Tar			| number |
+	| Sensor_Per_Store_Sep_Tar			| number |
+	| Sensor_Per_Store_Oct_Tar				| number |
+	| Sensor_Per_Store_Nov_Tar			| number |
+	| Sensor_Per_Store_Dec_Tar			| number |
+	| Sensor_Per_Store_Bef				| number |
 
-15. **Click** on AAD Account.
-
-	![Click on AAD Account.](media/video-indexer.png)
-
-	> **Note:** You may be prompted to enter the azure credentials.
-
-16. **Click** on Account settings.
-
-17. **Copy** the Account ID in a notepad. This will be needed during the template deployment.
-
-	![Copy the AccountID.](media/video-indexer-2.png)
-
-18. **Navigate** to [https://api-portal.videoindexer.ai/](https://api-portal.videoindexer.ai/).
-
-19. **Click** sign in if not already signed in.
-
-20. **Click** on profile.
-
-21. **Copy** the primary key. This will be needed during template deployment.
-
-	![Copy the primary key.](media/video-indexer-3.png)
 	
 
 ### Task 3: Deploy the ARM Template
@@ -227,7 +240,7 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 
 2. On the Custom deployment form, **select** your desired Subscription.
 
-3. **Select** the resource group name **DDiB-Retail-Lab** which you created in [Task 1](#task-1-create-a-resource-group-in-azure).
+3. **Select** the resource group name **DDiB-Lab** which you created in [Task 1](#task-1-create-a-resource-group-in-azure).
 
 4. **Provide/Type** an environment code which is unique to your environment. This code is a suffix to your environment and should not have any special characters or uppercase letters and should not be more than 6 characters. 
 
