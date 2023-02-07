@@ -1,4 +1,4 @@
-# Retail2.0 DREAM Demo in a Box Setup Guide
+# MIDP DREAM Demo in a Box Setup Guide
 
 ## What is it?
 DREAM Demos in a Box (DDiB) are packaged Industry Scenario DREAM Demos with ARM templates (with a demo web app, Power BI reports, Synapse resources, AML Notebooks etc.) that can be deployed in a customer’s subscription using the CAPE tool in a few hours.  Partners can also deploy DREAM Demos in their own subscriptions using DDiB.
@@ -95,7 +95,7 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 
 	![A portion of the Azure Portal home screen is displayed with Create Resource Group tile](media/resource-group-2.png)
 	
-5. On the 'Create a resource group' screen, **select** your desired Subscription. For Resource group, **type** 'DDiB-Retail-Lab'. 
+5. On the 'Create a resource group' screen, **select** your desired Subscription. For Resource group, **type** 'DDiB-Lab'. 
 
 6. **Select** your desired region.
 
@@ -125,7 +125,7 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 
 	![Create Power BI Workspace.](media/power-bi-2.png)
 
-	> **Note:** Please create a Workspace by the name "DDiB-Retail".
+	> **Note:** Please create a Workspace by the name "DDiB-MIDP".
 
 5. **Copy** the Workspace GUID or ID. You can get this by browsing to [https://app.powerbi.com/](https://app.powerbi.com/), selecting the workspace, and then copying the GUID 	from the address URL.
 
