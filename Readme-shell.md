@@ -248,31 +248,25 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 
 6. **Enter** the Power BI workspace ID created in [Task 2](#task-2-power-bi-workspace-creation).
 
-7. **Enter** the power BI streaming dataset url for **Occupancy_data_Realtime_URL** you copied in step 12 of [Task 2](#task-2-power-bi-workspace-creation).
+7. **Enter** the power BI streaming dataset url for **ADX Miami and San** you copied in step 12 of [Task 2](#task-2-power-bi-workspace-creation).
 
-8. **Enter** the power BI streaming dataset url for **Thermostat_telemetry_Realtime_URL** you copied in step 13 of [Task 2](#task-2-power-bi-workspace-creation).
+8. **Enter** the power BI streaming dataset url for **CCO Realtime** you copied in step 13 of [Task 2](#task-2-power-bi-workspace-creation).
 
-9. **Enter** the power BI streaming dataset url for **Livestreaming_video_analytics_Realtime_URL** you copied in step 13 of [Task 2](#task-2-power-bi-workspace-creation).
-
-10. In the "Video_indexer_account_id" section **enter** the value of step #17 from [Task 2](#task-2-power-bi-workspace-creation).
-
-11. In the "Video_indexer_api_key" section **enter** the value of step #21 from [Task 2](#task-2-power-bi-workspace-creation).
-
-12. **Click** ‘Review + Create’ button.
+9. **Click** ‘Review + Create’ button.
 
 	![The Custom deployment form is displayed with example data populated.](media/powerbi-deployment-1.png)
 
-13. **Click** the **Create** button once the template has been validated.
+10. **Click** the **Create** button once the template has been validated.
 
 	![Creating the template after validation.](media/powerbi-deployment-3.png)
 	
 	> **NOTE:** The provisioning of your deployment resources will take approximately 10 minutes.
 	
-14. **Stay** on the same page and wait for the deployment to complete.
+11. **Stay** on the same page and wait for the deployment to complete.
     
 	![A portion of the Azure Portal to confirm that the deployment is in progress.](media/microsoft-template.png)
     
-15. **Select** the **Go to resource group** button once your deployment is complete.
+12. **Select** the **Go to resource group** button once your deployment is complete.
 
 	![A portion of the Azure Portal to confirm that the deployment is in progress.](media/microsoft-template-2.png)
 
@@ -304,19 +298,19 @@ git clone -b retail2.0 --depth 1 --single-branch https://github.com/microsoft/Az
 
 ![Git Clone Command to Pull Down the demo Repository.](media/cloud-shell-4.png)
 	
-> **Note:** If you get File already exist error, please execute the following command: rm retail -r -f to delete existing clone.
+> **Note:** If you get File already exist error, please execute the following command: rm midp -r -f to delete existing clone.
 
 > **Note**: When executing scripts, it is important to let them run to completion. Some tasks may take longer than others to run. When a script completes execution, you will be returned to a command prompt. 
 
-5. **Execute** the retailSetup.ps1 script by executing the following command:
+5. **Execute** the midpSetup.ps1 script by executing the following command:
 
 ```
-cd ./retail/retail
+cd ./midp/midp
 ```
 
 6. Then **run** the PowerShell: 
 ```
-./retailSetup.ps1
+./midpSetup.ps1
 ```
     
 ![Commands to run the PowerShell Script.](media/cloud-shell-5.png)
@@ -364,13 +358,9 @@ cd ./retail/retail
 
 	![Commands to run the PowerShell Script.](media/cloud-shell-19.png)
 
-17. You will now be prompted to **enter** the resource group name in the Azure Cloud Shell. Type the same resource group name that you created in [Task 1](#task-1-create-a-resource-group-in-azure). – 'DDiB-Retail-Lab'.
+17. You will now be prompted to **enter** the resource group name in the Azure Cloud Shell. Type the same resource group name that you created in [Task 1](#task-1-create-a-resource-group-in-azure). – 'DDiB-Lab'.
 
 	![Enter Resource Group name.](media/cloud-shell-14.png)
-	
-18. Now you will be prompted if you have an unlimited video indexer account, **press** enter key.
-
-	![Enter Resource Group name.](media/cloud-shell-15.png)
 
 19. After the complete script has been executed, you get to see the message "--Execution Complete--", now **go to** the Azure Portal and **search** for app services, **click** on each one of the simulator apps.
 
@@ -483,7 +473,7 @@ cd ./retail/retail
 
 ![Workspace.](media/lake-db-pipeline-3.png)
 
-3. **Enter** the name of the Lake database as **"WWImportersContosoRetailLakeDB"** and **click** on Publish all.
+3. **Enter** the name of the Lake database as **"WWImportersContosoMIDPLakeDB"** and **click** on Publish all.
 
 ![Workspace.](media/lake-db-pipeline-4.png)
 
@@ -523,7 +513,7 @@ cd ./retail/retail
 
 	![Adx.](media/adx-5.png)
 	
-6. Under the source tab, **select** Source type as "Event Hub", in subscription **select** your subscription, in Event Hub Namespace **select** you eventhub namespace i.e. "adx-thermostat-occupancy-...", in Event Hub **enter** "occupancy", in Data connection name **select** "RetailDB-occupancy", in Consumer group **select** $Default. **Expand** More Parameters section and in compression **select** None and then **click** on Next.
+6. Under the source tab, **select** Source type as "Event Hub", in subscription **select** your subscription, in Event Hub Namespace **select** you eventhub namespace i.e. "ADX Miami and San-CCO realatime", in Event Hub **enter** "ADX Miami and San", in Data connection name **select** "midpDB-ADX Miami and San", in Consumer group **select** $Default. **Expand** More Parameters section and in compression **select** None and then **click** on Next.
 
 	![Adx.](media/adx-6.png)
 	
@@ -535,13 +525,13 @@ cd ./retail/retail
 
 	![Adx.](media/adx-8.png)
 	
-9. Repeat the above step from 4 to 8, replacing few values, i.e. in step 5, this time **enter** the table name as "Thermostat", in step 6 **enter** Event Hub as "thermostat" and Data connection name as "RetailDB-thermostat".
+9. Repeat the above step from 4 to 8, replacing few values, i.e. in step 5, this time **enter** the table name as "Thermostat", in step 6 **enter** Event Hub as "CCO Realtime" and Data connection name as "midpDB-CCO Realtime".
 
 10. For non-historical data, open Data Explorer Studio and under data section **click** on Ingest data.
 
 	![Adx.](media/adx-4.png)
 	
-11. In the Ingest data, under destination tab, select appropriate values in the respective fields, in Cluster **select** your kusto pool name, in the Database select "RetailDB" database, in the Table field **enter** the table name i.e. OccupancyHistoricalData and then **click** on Next.
+11. In the Ingest data, under destination tab, select appropriate values in the respective fields, in Cluster **select** your kusto pool name, in the Database select "midpDB" database, in the Table field **enter** the table name i.e. OccupancyHistoricalData and then **click** on Next.
 
 	![Adx.](media/adx-9.png)
 	
@@ -559,13 +549,13 @@ cd ./retail/retail
 
 	![Adx.](media/adx-13.png)
 
-15. Repeat step #11 and this time **enter** Table field ThermostatHistoricalData, and step #12 this time **expand** File Filters, under Folder path enter "thermostat".
+15. Repeat step #11 and this time **enter** Table field ADX Miami and SanHistoricalData, and step #12 this time **expand** File Filters, under Folder path enter "ADX Miami and San".
 
-16. Repeat step #11 and this time **enter** Table field OccupancyHistoricalDataUpdated, and step #12 this time **expand** File Filters, under Folder path enter "adx-data".
+16. Repeat step #11 and this time **enter** Table field CCO RealtimeHistoricalDataUpdated, and step #12 this time **expand** File Filters, under Folder path enter "adx-data".
 	
 ### Task 8: Azure Purview Setup
 
-> **Note:** Firstly you should assign Reader permission to the Azure Purview account starting with name "purviewretail..." for Cosmos Account, Synapse Workspace and Storage Account starting with name "stretail...". Once the permission has been granted, proceed with the following steps.
+> **Note:** Firstly you should assign Reader permission to the Azure Purview account starting with name "purviewmidp..." for Cosmos Account, Synapse Workspace and Storage Account starting with name "stmidp...". Once the permission has been granted, proceed with the following steps.
 
 1. From Azure Portal, **search** for azure purview resource in the resource group and **click** on the resource.
 
@@ -579,7 +569,7 @@ cd ./retail/retail
 
 	![Select Purview Resource.](media/purview-8.png)
 
-4. All the sub collections will be visible, **click** on the "+" sign under AzureDataLakeStorage, AzureSynapse, CosmosDB-Retail and PowerBI-Retail.
+4. All the sub collections will be visible, **click** on the "+" sign under AzureDataLakeStorage, AzureSynapse, CosmosDB-midp and PowerBI-midp.
 
 	![Select Purview Resource.](media/purview-9.png)
 
@@ -1259,7 +1249,7 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 8. **Enter** the following path:  
 	
 	```
-	retail/retail/retaildemo-app/wwwroot/config-poc.js
+	midp/midp/midpdemo-app/wwwroot/config-poc.js
 	```
 
 9. **Click** Download button.
@@ -1297,7 +1287,7 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 20. **Execute** the following command in cloudshell:  
 	
 	```
-	cp config-poc.js ./retail/retail/retaildemo-app/wwwroot
+	cp config-poc.js ./midp/midp/midpdemo-app/wwwroot
 	```
 	
 	![Execute the command.](media/updating-powerbi-8.png)
@@ -1305,7 +1295,7 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 21.	**Execute** the following command in cloudshell: 
 	
 	```
-	cd retail/retail/subscripts 
+	cd midp/midp/subscripts 
 	./updateWebAppSubScript.ps1
 	```
 	
@@ -1342,7 +1332,7 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 **Execute** the Pause_Resume_script.ps1 script by executing the following command: 
 1. **Run** Command: 
 	```
-	cd "retail\retail"
+	cd "midp\midp"
 	```
 
 2. Then **run** the PowerShell script: 
@@ -1392,7 +1382,7 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 
 2. **Run** Command: 
 	```
-	cd "retail\retail"
+	cd "midp\midp"
 	```
 
 3. Then **run** the PowerShell script: 
