@@ -509,7 +509,7 @@ cd ./midp/midp
 
 	![Adx.](media/adx-4.png)
 	
-5. In the Ingest data, under destination tab, select appropriate values in the respective fields, in Cluster **select** the kusto pool name, in the Database select "RetailDB" database, in the Table field **enter** the table name i.e. Occupancy and then **click** on Next.
+5. In the Ingest data, under destination tab, select appropriate values in the respective fields, in Cluster **select** the kusto pool name, in the Database select "MidpCosmosKustoDB" database, in the Table field **enter** the table name i.e. Occupancy and then **click** on Next.
 
 	![Adx.](media/adx-5.png)
 	
@@ -525,7 +525,7 @@ cd ./midp/midp
 
 	![Adx.](media/adx-8.png)
 	
-9. Repeat the above step from 4 to 8, replacing few values, i.e. in step 5, this time **enter** the table name as "Thermostat", in step 6 **enter** Event Hub as "CCO Realtime" and Data connection name as "midpDB-CCO Realtime".
+9. Repeat the above step from 4 to 8, replacing few values, i.e. in step 5, this time **enter** the table name as "CCO Realtime", in step 6 **enter** Event Hub as "CCO Realtime" and Data connection name as "midpDB-CCO Realtime".
 
 10. For non-historical data, open Data Explorer Studio and under data section **click** on Ingest data.
 
