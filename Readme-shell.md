@@ -378,7 +378,7 @@ cd ./midp/midp
 	
 	![Enter Resource Group name.](media/cloud-shell-23.png)
 	
-22. **Goto** notebooks section, **select** "13 Building a Video Recommendation Model.ipynb" and **click** on the "+" sign as shown in the image to create a compute.
+22. **Goto** notebooks section, **select** "3b Retail Sales Forecasting Model Building with AutoML.ipynb" and **click** on the "+" sign as shown in the image to create a compute.
 
 	![Enter Resource Group name.](media/cloud-shell-24.png)
 	
@@ -386,7 +386,7 @@ cd ./midp/midp
 
 	![Enter Resource Group name.](media/cloud-shell-25.png)
 	
-24. Verify the compute and kernel show green and are ready, if not wait for them to turn green, then **click** on the "..." button at top left in the workspace as shown in the image and **click** on Restart kernel and run all cells option. Let the notebook run successfully and then **open** the "14 Personality Based Video Recommender.ipynb" notebook and **run** it as well.
+24. Verify the compute and kernel show green and are ready, if not wait for them to turn green, then **click** on the "..." button at top left in the workspace as shown in the image and **click** on Restart kernel and run all cells option. Let the notebook run successfully.
 
 	![Enter Resource Group name.](media/cloud-shell-26.png)
       
