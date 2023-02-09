@@ -362,31 +362,31 @@ cd ./midp/midp
 
 	![Enter Resource Group name.](media/cloud-shell-14.png)
 
-19. After the complete script has been executed, you get to see the message "--Execution Complete--", now **go to** the Azure Portal and **search** for app services, **click** on each one of the simulator apps.
+18. After the complete script has been executed, you get to see the message "--Execution Complete--", now **go to** the Azure Portal and **search** for app services, **click** on each one of the simulator apps.
 
 	![Enter Resource Group name.](media/cloud-shell-16.png)
 	
-20. **Click** on the browse button for **each one** of the app services once, a new window will appear, **close** the window.
+19. **Click** on the browse button for **each one** of the app services once, a new window will appear, **close** the window.
 
 	![Enter Resource Group name.](media/cloud-shell-17.png)
 	
-21. **Goto** the resource group, **search** for the "aml" and **click** on the aml resource.
+20. **Goto** the resource group, **search** for the "aml" and **click** on the aml resource.
 
 	![Enter Resource Group name.](media/cloud-shell-22.png)
 
-22. **Click** on "Launch Studio".
+21. **Click** on "Launch Studio".
 	
 	![Enter Resource Group name.](media/cloud-shell-23.png)
 	
-23. **Goto** notebooks section, **select** "13 Building a Video Recommendation Model.ipynb" and **click** on the "+" sign as shown in the image to create a compute.
+22. **Goto** notebooks section, **select** "13 Building a Video Recommendation Model.ipynb" and **click** on the "+" sign as shown in the image to create a compute.
 
 	![Enter Resource Group name.](media/cloud-shell-24.png)
 	
-24. **Enter** desired compute name, **select** Virtual Machine Type, **select** Virtual machine size, and then **click** on create.
+23. **Enter** desired compute name, **select** Virtual Machine Type, **select** Virtual machine size, and then **click** on create.
 
 	![Enter Resource Group name.](media/cloud-shell-25.png)
 	
-25. Verify the compute and kernel show green and are ready, if not wait for them to turn green, then **click** on the "..." button at top left in the workspace as shown in the image and **click** on Restart kernel and run all cells option. Let the notebook run successfully and then **open** the "14 Personality Based Video Recommender.ipynb" notebook and **run** it as well.
+24. Verify the compute and kernel show green and are ready, if not wait for them to turn green, then **click** on the "..." button at top left in the workspace as shown in the image and **click** on Restart kernel and run all cells option. Let the notebook run successfully and then **open** the "14 Personality Based Video Recommender.ipynb" notebook and **run** it as well.
 
 	![Enter Resource Group name.](media/cloud-shell-26.png)
       
