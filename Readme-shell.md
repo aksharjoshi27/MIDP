@@ -384,11 +384,11 @@ cd ./midpCosmos/midpCosmos
 
 	![Adx.](media/adx-4.png)
 	
-5. In the Ingest data, under destination tab, select appropriate values in the respective fields, in Cluster **select** the kusto pool name, in the Database select "MidpCosmosKustoDB" database, in the Table field **enter** the table name i.e. Occupancy and then **click** on Next.
+5. In the Ingest data, under destination tab, **select** appropriate values in the respective fields, in Cluster **select** the kusto pool name as "midpcosmoskust....", in the Database select "MidpCosmosKustoDB" database, in the Table field **enter** the table name i.e. Occupancy and then **click** on Next.
 
 	![Adx.](media/adx-5.png)
 	
-6. Under the source tab, **select** Source type as "Event Hub", in subscription **select** your subscription, in Event Hub Namespace **select** you eventhub namespace i.e. "ADX Miami and San-CCO realatime", in Event Hub **enter** "ADX Miami and San", in Data connection name **select** "midpDB-ADX Miami and San", in Consumer group **select** $Default. **Expand** More Parameters section and in compression **select** None and then **click** on Next.
+6. Under the source tab, **select** Source type as "Event Hub", in subscription **select** your subscription, in Event Hub Namespace **select** you eventhub namespace i.e. "adx-thermostat-occupancy-...", in Event Hub **enter** "occupancy", in Data connection name **select** "MidpCosmosKustoDB-occupancy", in Consumer group **select** $Default. **Expand** More Parameters section and in compression **select** None and then **click** on Next.
 
 	![Adx.](media/adx-6.png)
 	
@@ -400,17 +400,17 @@ cd ./midpCosmos/midpCosmos
 
 	![Adx.](media/adx-8.png)
 	
-9. Repeat the above step from 4 to 8, replacing few values, i.e. in step 5, this time **enter** the table name as "CCO Realtime", in step 6 **enter** Event Hub as "CCO Realtime" and Data connection name as "midpDB-CCO Realtime".
+9. Repeat the above step from 4 to 8, replacing few values, i.e. in step 5, this time **enter** the table name as "thermostat", in step 6 **enter** Event Hub as "thermostat" and Data connection name as "MidpCosmosKustoDB-thermostat".
 
 10. For non-historical data, open Data Explorer Studio and under data section **click** on Ingest data.
 
 	![Adx.](media/adx-4.png)
 	
-11. In the Ingest data, under destination tab, select appropriate values in the respective fields, in Cluster **select** your kusto pool name, in the Database select "midpDB" database, in the Table field **enter** the table name i.e. OccupancyHistoricalData and then **click** on Next.
+11. In the Ingest data, under destination tab, select appropriate values in the respective fields, in Cluster **select** your kusto pool name as "midpcosmoskusto...", in the Database select "MidpCosmosKustoDB" database, in the Table field **enter** the table name i.e. OccupancyHistoricalData and then **click** on Next.
 
 	![Adx.](media/adx-9.png)
 	
-12. Under the source tab, **select** Source type as "From blob container", in Ingestion type **select** One-time + Continous, in "Select source" **check** the Select container radio button, in Storage subscription **select** the appropriate subscription, in Storage account **select** the current storage account, for Container **select** "adx-historical", **expand** File Filters, under Folder path enter "occupancy" and then **click** on Next.
+12. Under the source tab, **select** Source type as "From blob container", in Ingestion type **select** One-time + Continous, in "Select source" **check** the Select container radio button, in Storage subscription **select** the appropriate subscription, in Storage account **select** the current storage account, for Container **select** "thermostat", **expand** File Filters, under Folder path enter "occupancy" and then **click** on Next.
 
 	![Adx.](media/adx-10.png)
 	
