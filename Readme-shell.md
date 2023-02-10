@@ -178,11 +178,11 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 	
 	![Create new streaming dataset.](media/power-bi-7.png)
 
-12. **Copy** the push url of dataset ‘ADX Miami and San’ and place it in a notepad for later use.
+12. **Copy** the push url of dataset ‘ADX Miami and San’ and **paste** it in a notepad for later use.
 
 	![Provide the Push Url.](media/power-bi-8.png)
 	
-13. Similarly add one more dataset, "CCO Realtime", copy the push url and place it in a notepad.
+13. Similarly add one more dataset, "CCO Realtime", copy the push url and **paste** it in a notepad.
 
 	| Field Name                        	| Type     |
 	|---------------------------------------|----------|
@@ -246,11 +246,11 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 
 5. **Provide** a strong SQL Administrator login password and set this aside for later use.
 
-6. **Enter** the Power BI workspace ID created in [Task 2](#task-2-power-bi-workspace-creation).
+6. **Enter** the Power BI workspace ID copied in step 6 of [Task 2](#task-2-power-bi-workspace-creation).
 
-7. **Enter** the power BI streaming dataset url for **ADX Miami and San** you copied in step 12 of [Task 2](#task-2-power-bi-workspace-creation).
+7. **Enter** the power BI streaming dataset url for **CCO Realtime** you copied in step 13 of [Task 2](#task-2-power-bi-workspace-creation).
 
-8. **Enter** the power BI streaming dataset url for **CCO Realtime** you copied in step 13 of [Task 2](#task-2-power-bi-workspace-creation).
+8. **Enter** the power BI streaming dataset url for **Store Telemetry Realtime** you copied in step 12 of [Task 2](#task-2-power-bi-workspace-creation).
 
 9. **Click** ‘Review + Create’ button.
 
