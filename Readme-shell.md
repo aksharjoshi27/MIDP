@@ -42,17 +42,15 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
   - [Task 2: Power BI Workspace creation](#task-2-power-bi-workspace-creation)
   - [Task 3: Deploy the ARM Template](#task-3-deploy-the-arm-template)
   - [Task 4: Run the Cloud Shell to provision the demo resources](#task-4-run-the-cloud-shell-to-provision-the-demo-resources)
-  - [Task 5: (Under Maintenance. Move to Task 6)QnA maker and LogicApp Configuration](#task-5-qna-maker-and-logicapp-configuration)
-  - [Task 6: Lake Database creation and Pipeline execution](#task-6-lake-database-creation-and-pipeline-execution)
-  - [Task 7: Data Explorer Setup](#task-7-data-explorer-setup)
-  - [Task 8: Azure Purview Setup](#task-8-azure-purview-setup)
-  - [Task 9: Power BI reports and dashboard creation](#task-9-power-bi-reports-and-dashboard-creation)
+  - [Task 5: Data Explorer Setup](#task-7-data-explorer-setup)
+  - [Task 6: Azure Purview Setup](#task-8-azure-purview-setup)
+  - [Task 7: Power BI reports and dashboard creation](#task-9-power-bi-reports-and-dashboard-creation)
   	- [Steps to validate the credentials for reports](#steps-to-validate-the-credentials-for-reports)
   	- [Steps to create realtime reports](#steps-to-create-realtime-reports)
   	- [Follow these steps to create the Power BI dashboard](#follow-these-steps-to-create-the-power-bi-dashboard)
   	- [Updating Dashboard and Report Ids in Web app](#updating-dashboard-and-report-ids-in-web-app)
-  - [Task 10: Pause or Resume script](#task-10-pause-or-resume-script)
-  - [Task 11: Clean up resources](#task-11-clean-up-resources)
+  - [Task 8: Pause or Resume script](#task-10-pause-or-resume-script)
+  - [Task 9: Clean up resources](#task-11-clean-up-resources)
 
 <!-- /TOC -->
 
@@ -272,9 +270,7 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 
 ### Task 4: Run the Cloud Shell to provision the demo resources
 
-**Open** the Azure Portal.
-
-1. In the Resource group section, **open** the Azure Cloud Shell by selecting its icon from the top toolbar.
+1. **Open** the Azure Portal. In the Resource group section, **open** the Azure Cloud Shell by selecting its icon from the top toolbar.
 
 	![A portion of the Azure Portal taskbar is displayed with the Azure Cloud Shell icon highlighted.](media/cloud-shell.png)
 
@@ -305,7 +301,7 @@ git clone -b retail2.0 --depth 1 --single-branch https://github.com/microsoft/Az
 5. **Execute** the midpSetup.ps1 script by executing the following command:
 
 ```
-cd ./midp/midp
+cd ./midpCosmos/midpCosmos
 ```
 
 6. Then **run** the PowerShell: 
@@ -358,7 +354,7 @@ cd ./midp/midp
 
 	![Commands to run the PowerShell Script.](media/cloud-shell-19.png)
 
-17. You will now be prompted to **enter** the resource group name in the Azure Cloud Shell. Type the same resource group name that you created in [Task 1](#task-1-create-a-resource-group-in-azure). – 'DDiB-Lab'.
+17. You will now be prompted to **enter** the resource group name in the Azure Cloud Shell. **Type** the same resource group name that you created in [Task 1](#task-1-create-a-resource-group-in-azure). – 'DDiB-Lab'.
 
 	![Enter Resource Group name.](media/cloud-shell-14.png)
 
@@ -366,132 +362,11 @@ cd ./midp/midp
 
 	![Enter Resource Group name.](media/cloud-shell-16.png)
 	
-19. **Click** on the browse button for **each one** of the app services once, a new window will appear, **close** the window.
+19. **Click** on the browse button for **each one** of the app services once, a new window will appear. Wait for the page to load and **close** the tab.
 
 	![Enter Resource Group name.](media/cloud-shell-17.png)
-	
-20. **Goto** the resource group, **search** for the "aml" and **click** on the aml resource.
 
-	![Enter Resource Group name.](media/cloud-shell-22.png)
-
-21. **Click** on "Launch Studio".
-	
-	![Enter Resource Group name.](media/cloud-shell-23.png)
-	
-22. **Goto** notebooks section, **select** "3b Retail Sales Forecasting Model Building with AutoML.ipynb" and **click** on the "+" sign as shown in the image to create a compute.
-
-	![Enter Resource Group name.](media/cloud-shell-24.png)
-	
-23. **Enter** desired compute name, **select** Virtual Machine Type, **select** Virtual machine size, and then **click** on create.
-
-	![Enter Resource Group name.](media/cloud-shell-25.png)
-	
-24. Verify the compute and kernel show green and are ready, if not wait for them to turn green, then **click** on the "..." button at top left in the workspace as shown in the image and **click** on Restart kernel and run all cells option. Let the notebook run successfully.
-
-	![Enter Resource Group name.](media/cloud-shell-26.png)
-      
-### Task 5: (Under Maintenance. Move to Task 6)QnA maker and LogicApp Configuration
-
-> **Note:**
-	> - QnAmaker service is being upgraded to Question Answering. Please Move to the next task.
-
-1. **Open** the Azure Portal.
-
-2. **Click** on the Azure Cloud Shell icon from the top toolbar. 
-
-	![Open and Click on Azure Cloud Shell.](media/qna_logicapp.png)
-
-	**Execute** qna_logicapp_subscript.ps1 script by executing the following command: 
-
-3. **Run** Command: 
-	```
-	cd "retail/retail/subscripts"
-	```
-
-4. Then **run** the PowerShell script: 
-	```
-	./qna_logicapp_subscript.ps1 
-	```
-	![Run the Powershell Script.](media/qna_logicapp-1.png)
-	
-5. You will have to complete the 'az login' and 'device login' authentication by following the steps 7 to 18 of [Task 4](#task-4-run-the-cloud-shell-to-provision-the-demo-resources) and may be prompted to select your subscription if you have multiple subscriptions.
-	
-6. After the subscript is completed, **open** a new tab on your browser and **launch** [qnamaker.ai](https://www.qnamaker.ai/) as below
-
-	![Search QnAmaker.](media/qna_logicapp-2.png)
-	
-7. **Sign In** using the same user credentials which you have used for previous tasks, **go to** "My knowledge bases" section.
-
-	![Switch section.](media/qna_logicapp-3.png)
-
-8. There will be 3 dropdowns namely "Select tenant", "Select subscription" and "Select service". From the dropdown **select** the appropriate values and in the the service dropdown make sure to select the value starting with "qnamaker-"
-
-	![Select values.](media/qna_logicapp-4.png)
-	
-9. **Click** on the knowledge base name.
-
-	![Knowledge base name.](media/qna_logicapp-5.png)
-	
-10. You will be directed to another screen, **switch** to Publish section and **click** on Publish button.
-
-	![Publish.](media/qna_logicapp-6.png)
-	
-11. The output screen will have some values, **copy** the value of post and concatenate it after the value of host in a notepad.
-
-	![Values host and post.](media/qna_logicapp-7.png)
-	
-12. The concatinated value should appear like below.
-
-	![Values.](media/qna_logicapp-8.png)
-	
-13. **Copy** and **Paste** the value of Authorisation as well in a notepad.
-
-	![Authorisation.](media/qna_logicapp-9.png)
-	
-14. **Go** to the the resource group, search for logic app in the search bar and **click** on the logic app which starts with "logicapp-retail-...".
-
-	![Logic App.](media/qna_logicapp-10.png)
-	
-15. Under the "Development Tools" section **select** "Logic app designer".
-
-	![Logic App.](media/qna_logicapp-11.png)
-	
-16. **Expand** the "KnowledgeBaseAPICall" by clicking on it, **paste** the values for "URI" and "Authentication" from the notepad from step 9 and 10 respectively and finally **click** on "Save".
-
-	![Logic App.](media/qna_logicapp-12.png)
-
-      
-### Task 6: Lake Database creation and Pipeline execution
-
-1. **Click** on the synapse resource and **click** on the open synapse studio in the next window.
-
-![Resource.](media/lake-db-pipeline-1.png)
-
-![Workspace.](media/lake-db-pipeline-2.png)
-
-2. **Click** on the data icon on sidebar, then **click** on the "+" sign and then **click** on the Lake database.
-
-![Workspace.](media/lake-db-pipeline-3.png)
-
-3. **Enter** the name of the Lake database as **"WWImportersContosoMIDPLakeDB"** and **click** on Publish all.
-
-![Workspace.](media/lake-db-pipeline-4.png)
-
-4. A new window appears, here **click** on Publish.
-
-![Workspace.](media/lake-db-pipeline-7.png)
-
-5. **Click** on the integrate icon on sidebar, **expand** the Pipelines, next **expand** the folder containing the desired pipelines, **click** on the pipeline.
-
-![Workspace.](media/lake-db-pipeline-5.png)
-
-6. **Click** on Add trigger and then **click** on Trigger now.
-
-![Workspace.](media/lake-db-pipeline-6.png)
-
-7. Perform the above action with the remaining 2  pipelines in the folder, the desired tables will be created under the newly created Lake database.
-
-### Task 7: Data Explorer Setup
+### Task 5: Data Explorer Setup
 
 1. In the Azure Portal **search** for data explorer and **click** on the data explorer resource.
 
@@ -553,7 +428,7 @@ cd ./midp/midp
 
 16. Repeat step #11 and this time **enter** Table field CCO RealtimeHistoricalDataUpdated, and step #12 this time **expand** File Filters, under Folder path enter "adx-data".
 	
-### Task 8: Azure Purview Setup
+### Task 6: Azure Purview Setup
 
 > **Note:** Firstly you should assign Reader permission to the Azure Purview account starting with name "purviewmidp..." for Cosmos Account, Synapse Workspace and Storage Account starting with name "stmidp...". Once the permission has been granted, proceed with the following steps.
 
@@ -665,7 +540,7 @@ cd ./midp/midp
 
 > **Note:** Add the Purview's MSI name as a contributor in Power BI workspace. You can also create a security group with the said MSI in it and assign admin permissions to it. You would also be required to enable "enhance admin API responses with detailed metadata" option in your Power BI admin settings.
 	
-### Task 9: Power BI reports and dashboard creation
+### Task 7: Power BI reports and dashboard creation
 
 ### Steps to validate the credentials for reports
 
@@ -1319,7 +1194,7 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 	
 > **Note:** The setup for your Dream Demo in a Box is done here and now you can follow the demo script for testing/demoing your environment.
 	
-### Task 10: Pause or Resume script
+### Task 8: Pause or Resume script
 
 > **Note:** Please perform these steps after your demo is done and you do not need the environment anymore. Also ensure you Resume the environment before demo if you paused it once. 
  
@@ -1368,7 +1243,7 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 
 	![Enter your choice.](media/authentication-4.png)
 
-### Task 11: Clean up resources
+### Task 9: Clean up resources
 
 > **Note: Perform these steps after your demo is done and you do not need the resources anymore**
 
