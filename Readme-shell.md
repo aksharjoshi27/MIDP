@@ -401,32 +401,6 @@ cd ./midpCosmos/midpCosmos
 	![Adx.](media/adx-8.png)
 	
 9. Repeat the above step from 4 to 8, replacing few values, i.e. in step 5, this time **enter** the table name as "thermostat", in step 6 **enter** Event Hub as "thermostat" and Data connection name as "MidpCosmosKustoDB-thermostat".
-
-10. For non-historical data, open Data Explorer Studio and under data section **click** on Ingest data.
-
-	![Adx.](media/adx-4.png)
-	
-11. In the Ingest data, under destination tab, select appropriate values in the respective fields, in Cluster **select** your kusto pool name as "midpcosmoskusto...", in the Database select "MidpCosmosKustoDB" database, in the Table field **enter** the table name i.e. OccupancyHistoricalData and then **click** on Next.
-
-	![Adx.](media/adx-9.png)
-	
-12. Under the source tab, **select** Source type as "From blob container", in Ingestion type **select** One-time + Continous, in "Select source" **check** the Select container radio button, in Storage subscription **select** the appropriate subscription, in Storage account **select** the current storage account, for Container **select** "thermostat", **expand** File Filters, under Folder path enter "occupancy" and then **click** on Next.
-
-	![Adx.](media/adx-10.png)
-	
-	![Adx.](media/adx-11.png)
-
-13. Wait for some time for Partial data preview to load, and then **click** on Next: Start Ingestion.
-
-	![Adx.](media/adx-12.png)
-
-14. After successful Ingestion you will see the screen below.
-
-	![Adx.](media/adx-13.png)
-
-15. Repeat step #11 and this time **enter** Table field ADX Miami and SanHistoricalData, and step #12 this time **expand** File Filters, under Folder path enter "ADX Miami and San".
-
-16. Repeat step #11 and this time **enter** Table field CCO RealtimeHistoricalDataUpdated, and step #12 this time **expand** File Filters, under Folder path enter "adx-data".
 	
 ### Task 6: Azure Purview Setup
 
@@ -570,7 +544,7 @@ To give permissions for the Power BI reports to access the data sources:
 	
 	![Dataset.](media/power-bi-report-6.png)
 	
-6. **Click** on the CCO Report.
+6. **Click** on the 6 ADX Website Bounce Rate Analysis.
 
 7. **Expand** Data source credentials.
 
@@ -584,11 +558,11 @@ To give permissions for the Power BI reports to access the data sources:
 
 10. **Enter** the same SQL Administrator login password that was created for [Task 3](#task-3-deploy-the-arm-template) Step #5.
 
-11. **Click** on Sign in.
+11. **Select** privacy level as Organisational and **Click** on Sign in.
 
 	![Validate Creds.](media/power-bi-report-8.png)
 	
-12. **Click** on the Acquisition Impact Report.
+12. **Click** on the ADX Thermostat and Occupancy.
 
 13. **Expand** Data source credentials.
 
@@ -604,7 +578,7 @@ To give permissions for the Power BI reports to access the data sources:
 
 	![Validate Creds.](media/power-bi-report-03.png)
 		
-17. **Click** on the ADX Thermostat and Occupancy.
+17. **Click** on the Campaign Analytics.
 
 18. **Expand** Data source credentials.
 
@@ -612,65 +586,21 @@ To give permissions for the Power BI reports to access the data sources:
 
 	![Data Source Creds.](media/power-bi-report-04.png)
 
-20. Keeping the "Authentication method" as "OAuth2" and **click** on Sign in.
+20. **Enter** Username as ‘labsqladmin’. **Enter** the same SQL Administrator login password that was created for [Task 3](#task-3-deploy-the-arm-template) Step #5. **Select** privacy level as Organisational and **Click** on Sign in.
 
 	![Validate Creds.](media/power-bi-report-05.png)
-
-21. In the new window, **select** the appropriate user.
-
-	![Validate Creds.](media/power-bi-report-03.png)
-
-22. **Click** on the Retail HTAP.
-
-23. **Expand** Data source credentials.
-
-24. **Click** Edit credentials in front of DocumentDB and a dialogue box will pop up.
-
-	![Data Source Creds.](media/power-bi-report-06.png)
-
-25. Go to the Azure Portal and under resources search for "cosmos" and **click** on the cosmos resource, the resource window opens.
-
-	![Data Source Creds.](media/power-bi-report-07.png)
-
-26. Under the Settings section **select** keys and **copy** the primary key of the cosmos resource.
-
-	![Data Source Creds.](media/power-bi-report-08.png)
-	
-27. In the powerbi tab in step #28, keeping the "Authentication method" as "Key", **paste** the "Account key" from step #30 and **click** on Sign in.
-
-	![Validate Creds.](media/power-bi-report-09.png)
-	
-28. **Click** on the Global Occupational Safety Report.
-
-29. **Expand** Data source credentials.
-
-30. **Click** Edit credentials in front of AzureTable and a dialogue box will pop up.
-
-	![Validate Creds.](media/power-bi-report-010.png)
-	
-31. Go to Azure portal and **search** for 'stretail' and **click** on the storage account.
-
-	![Validate Creds.](media/power-bi-report-011.png)
-	
-32. In the storage account resource, under the Security + networking section **click** on Access keys, **click** on Show keys and then **copy** the key.
-
-	![Validate Creds.](media/power-bi-report-012.png)
-	
-33. Paste the key in the pop-up in step #34, under Account key and **click** on Sign in.
-
-	![Validate Creds.](media/power-bi-report-013.png)
 	
 ### Steps to create realtime reports
 
-1.	**Click** on the three dots in front of the “occupancy” and “thermostat” datasets one at a time and **click** on Create report, a new report will be created.
+1.	**Click** on the three dots in front of the “CCO Realtime” dataset and **click** on Create report, a new report will be created.
 
 	![Validate Creds.](media/power-bi-report-014.png)
 
-**Occupancy Realtime Visualizations:**
+**CCO Realtime Visualizations:**
 
-**Average Visitors In**
+**Available Inventory**
 
-2. **Select** the stacked column chart visual from “Visualizations”.
+2. **Select** the stacked KPI visual from “Visualizations”.
 
 	![Validate Creds.](media/power-bi-report-015.png)
 
@@ -678,7 +608,11 @@ To give permissions for the Power BI reports to access the data sources:
 
 4. **Drag /Select** the column name into the fields which is below the visualization panel.
 	
-5. For showing the average values **click** on the dropdown arrow in the value section field and select the Average.
+5. **Select** Visual level or Page Level Filter in Filter pane as per the requirement.
+
+6. **Drag** the “RecordedOn”, column to “Filters on this visual” in filter pane and **Select** filter Type as “Relative Time”.
+
+7. In “Show items when the value” options, select “Is in the last”, “1” & “minute” **Select** Apply Filter.
 
 	![Validate Creds.](media/power-bi-report-016.png)
 	
@@ -688,15 +622,15 @@ To give permissions for the Power BI reports to access the data sources:
 	
 	![Validate Creds.](media/power-bi-report-018.png)
 
-**Average Visitors Out**
+**Total Visitors and Loyal Customers by RecordedOn**
 
-6. **Select** the Stacked area line chart for the next visual.
+8. **Select** the Stacked area line chart for the next visual.
 
 	![Validate Creds.](media/power-bi-report-019.png)
 
-7. **Select** the required field column for the visual.
+9. **Select** the required field column for the visual.
 
-8. **Drag /Select** the column name into the fields which is below the visualization panel.
+10. **Drag /Select** the column name into the fields which is below the visualization panel.
 
 	![Validate Creds.](media/power-bi-report-020.png)
 	
