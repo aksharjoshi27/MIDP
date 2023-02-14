@@ -546,7 +546,7 @@ To give permissions for the Power BI reports to access the data sources:
 
 10. **Enter** the same SQL Administrator login password that was created for [Task 3](#task-3-deploy-the-arm-template) Step #5.
 
-11. **Select** privacy level as Organisational and **Click** on Sign in.
+11. **Click** on Sign in.
 
 	![Validate Creds.](media/power-bi-report-8.png)
 	
@@ -558,7 +558,7 @@ To give permissions for the Power BI reports to access the data sources:
 
 	![Data Source Creds.](media/power-bi-report-01.png)
 
-15. Keeping the default values as it is, **click** on Sign in, a new window will pop-up.
+15. **Select** privacy level as Organisational and **Click** on Sign in, a new window will pop-up.
 
 	![Validate Creds.](media/power-bi-report-02.png)
 
@@ -574,9 +574,9 @@ To give permissions for the Power BI reports to access the data sources:
 
 	![Data Source Creds.](media/power-bi-report-04.png)
 
-20. **Enter** Username as ‘labsqladmin’. **Enter** the same SQL Administrator login password that was created for [Task 3](#task-3-deploy-the-arm-template) Step #5. **Select** privacy level as Organisational and **Click** on Sign in.
+20. **Enter** Username as ‘labsqladmin’. **Enter** the same SQL Administrator login password that was created for [Task 3](#task-3-deploy-the-arm-template) Step #5. **Click** on Sign in.
 
-	![Validate Creds.](media/power-bi-report-05.png)
+	![Validate Creds.](media/power-bi-report-8.png)
 	
 ### Steps to create realtime reports
 
