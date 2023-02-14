@@ -358,11 +358,11 @@ cd ./midpCosmos/midpCosmos
 
 	![Enter Resource Group name.](media/cloud-shell-14.png)
 
-18. After the complete script has been executed, you get to see the message "--Execution Complete--", now **go to** the Azure Portal and **search** for app services, **click** on each one of the simulator apps.
+18. After the complete script has been executed, you get to see the message "--Execution Complete--", now **go to** the Azure Portal and **search** for "app service" and **click** on the simulator app.
 
 	![Enter Resource Group name.](media/cloud-shell-16.png)
 	
-19. **Click** on the browse button for **each one** of the app services once, a new window will appear. Wait for the page to load and **close** the tab.
+19. **Click** on the browse button of the app service once, a new window will appear. Wait for the page to load and **close** the tab.
 
 	![Enter Resource Group name.](media/cloud-shell-17.png)
 
@@ -446,7 +446,7 @@ cd ./midpCosmos/midpCosmos
 
 	![Select Purview Resource.](media/purview-30.png)
 	
-11. **Repeat** step #10 for AzureSynapseAnalytics.
+11. **Repeat** steps #5 to #10 for AzureSynapseAnalytics.
 
 12. **Open** synaspse studio, **select** manage tab, under External Connections **select** Azure Purview, **click** on Connect to a Purview account, under Purview account name **select** the current Purview account, and then **click** on Apply.
 
@@ -468,49 +468,37 @@ cd ./midpCosmos/midpCosmos
 
 	![Select Purview Resource.](media/purview-19.png)
 
-17. **Repeat** step #10 for CosmosDB.
+17. **Repeat** step #5 for AzureSqlDatabase.
 
-18. **Click** on New Scan, in the pop-up window **expand** the Credential drop-down and **click** on New.
+18. **Click** on New Scan, in the pop-up window **expand** the Database name drop-down and **Select** InventoryDB and **Click** on continue.
 
 	![Select Purview Resource.](media/purview-20.png)
 	
-19. Under Name **enter** any desired name then **expand** Key Vault connection and **click** on New.
-
-	![Select Purview Resource.](media/purview-21.png)
-	
-20. In the new window **enter** any desired name, then **expand** Key Vault name and **select** the current key vault name and then **click** on create.
-
-	![Select Purview Resource.](media/purview-22.png)
-	
-21. A pop-up window appears, here **click** on Confirm.
-
-	![Select Purview Resource.](media/purview-23.png)
-	
-22. In the new window **enter** the desired name, **expand** Key Vault connection and **select** the name entered in step #22, **enter** the secret name as Cosmos-cred and then **click** on Create.
+19. In the new window **enter** the desired name, **expand** Key Vault connection and **select** the name entered in step #22, **enter** the secret name as Cosmos-cred and then **click** on Create.
 
 	![Select Purview Resource.](media/purview-24.png)
 	
-23. In the new window under Credential from the drop-down **select** the appropriate credential, under the Select a collection **select** the Purview account name and then **click** on Continue.
+20. In the new window under Credential from the drop-down **select** the appropriate credential, under the Select a collection **select** the Purview account name and then **click** on Continue.
 	
 	![Select Purview Resource.](media/purview-25.png)
 	
-24. In the new window **click** on Continue.
+21. In the new window **click** on Continue.
 
 	![Select Purview Resource.](media/purview-26.png)
 
-25. In the new window **click** on Continue.
+22. In the new window **click** on Continue.
 
 	![Select Purview Resource.](media/purview-27.png)
 	
-26. In the new window, **check** the Once radio button and **click** on Continue.
+23. In the new window, **check** the Once radio button and **click** on Continue.
 	
 	![Select Purview Resource.](media/purview-28.png)
 	
-27. In the next window **click** on Save and run.
+24. In the next window **click** on Save and run.
 
 	![Select Purview Resource.](media/purview-29.png)
 	
-28. **Repeat** the step #10 for PowerBI.
+25. **Repeat** the step #10 for PowerBI.
 
 > **Note:** Add the Purview's MSI name as a contributor in Power BI workspace. You can also create a security group with the said MSI in it and assign admin permissions to it. You would also be required to enable "enhance admin API responses with detailed metadata" option in your Power BI admin settings.
 	
