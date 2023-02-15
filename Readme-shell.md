@@ -447,61 +447,7 @@ cd ./midpCosmos/
 
 	![Select Purview Resource.](media/purview-30.png)
 	
-11. **Repeat** steps #5 to #10 for AzureSynapseAnalytics.
-
-12. **Open** synaspse studio, **select** manage tab, under External Connections **select** Azure Purview, **click** on Connect to a Purview account, under Purview account name **select** the current Purview account, and then **click** on Apply.
-
-	![Select Purview Resource.](media/purview-15.png)
-	
-13. Now, under Security **select** Access Control, **click** on Add, under Role **select** Synapse Administrator, under Select user **select** current Purview account and then **click** on Apply.
-
-	![Select Purview Resource.](media/purview-16.png)
-	
-14. Go back to Purview studio, **click** on New Scan, a window appears, here under SQL Database **select** the name of SQL database and then **click** on Continue.
-
-	![Select Purview Resource.](media/purview-17.png)
-
-15. In the new window **click** on continue.
-
-	![Select Purview Resource.](media/purview-18.png)
-	
-16. In the next window, **click** on Save and Run.
-
-	![Select Purview Resource.](media/purview-19.png)
-
-17. **Repeat** step #5 for AzureSqlDatabase.
-
-18. **Click** on New Scan, in the pop-up window **expand** the Database name drop-down and **Select** InventoryDB and **Click** on continue.
-
-	![Select Purview Resource.](media/purview-20.png)
-	
-19. In the new window **enter** the desired name, **expand** Key Vault connection and **select** the name entered in step #22, **enter** the secret name as Cosmos-cred and then **click** on Create.
-
-	![Select Purview Resource.](media/purview-24.png)
-	
-20. In the new window under Credential from the drop-down **select** the appropriate credential, under the Select a collection **select** the Purview account name and then **click** on Continue.
-	
-	![Select Purview Resource.](media/purview-25.png)
-	
-21. In the new window **click** on Continue.
-
-	![Select Purview Resource.](media/purview-26.png)
-
-22. In the new window **click** on Continue.
-
-	![Select Purview Resource.](media/purview-27.png)
-	
-23. In the new window, **check** the Once radio button and **click** on Continue.
-	
-	![Select Purview Resource.](media/purview-28.png)
-	
-24. In the next window **click** on Save and run.
-
-	![Select Purview Resource.](media/purview-29.png)
-	
-25. **Repeat** the step #10 for PowerBI.
-
-> **Note:** Add the Purview's MSI name as a contributor in Power BI workspace. You can also create a security group with the said MSI in it and assign admin permissions to it. You would also be required to enable "enhance admin API responses with detailed metadata" option in your Power BI admin settings.
+11. **Repeat** steps #5 to #10 for AzureSynapseAnalytics, AzureSqlDatabase and PowerBI. 
 	
 ### Task 7: Power BI reports and dashboard creation
 
@@ -533,7 +479,7 @@ To give permissions for the Power BI reports to access the data sources:
 	
 	![Dataset.](media/power-bi-report-6.png)
 	
-6. **Click** on the 6 ADX Website Bounce Rate Analysis.
+6. **Click** on the dataset "6 ADX Website Bounce Rate Analysis".
 
 7. **Expand** Data source credentials.
 
@@ -567,7 +513,7 @@ To give permissions for the Power BI reports to access the data sources:
 
 	![Validate Creds.](media/power-bi-report-03.png)
 		
-17. **Click** on the Campaign Analytics.
+17. **Click** on the dataset "Campaign Analytics".
 
 18. **Expand** Data source credentials.
 
