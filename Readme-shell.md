@@ -289,24 +289,24 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 4. In the Azure Cloud Shell window, ensure the PowerShell environment is selected and **enter** the following command to clone the repository files.
 
 ```
-git clone -b retail2.0 --depth 1 --single-branch https://github.com/microsoft/Azure-Analytics-and-AI-Engagement.git retail
+git clone -b midp-with-cosmos --depth 1 --single-branch https://github.com/microsoft/Azure-Analytics-and-AI-Engagement.git midpCosmos
 ```
 
 ![Git Clone Command to Pull Down the demo Repository.](media/cloud-shell-4.png)
 	
-> **Note:** If you get File already exist error, please execute the following command: rm midp -r -f to delete existing clone.
+> **Note:** If you get File already exist error, please execute the following command: rm midpCosmos -r -f to delete existing clone.
 
 > **Note**: When executing scripts, it is important to let them run to completion. Some tasks may take longer than others to run. When a script completes execution, you will be returned to a command prompt. 
 
-5. **Execute** the midpSetup.ps1 script by executing the following command:
+5. **Execute** the midpComosSetup.ps1 script by executing the following command:
 
 ```
-cd ./midpCosmos/midpCosmos
+cd ./midpCosmos/
 ```
 
 6. Then **run** the PowerShell: 
 ```
-./midpSetup.ps1
+./midpComosSetup.ps1
 ```
     
 ![Commands to run the PowerShell Script.](media/cloud-shell-5.png)
@@ -362,9 +362,10 @@ cd ./midpCosmos/midpCosmos
 
 	![Enter Resource Group name.](media/cloud-shell-16.png)
 	
-19. **Click** on the browse button of the app service once, a new window will appear. Wait for the page to load and **close** the tab.
+19. **Click** on the browse button of the app service once, a new window will appear as shown in the below screenshot. Wait for the page to load and **close** the tab.
 
 	![Enter Resource Group name.](media/cloud-shell-17.png)
+	![Enter Resource Group name.](media/cloud-shell-17.1.png)
 
 ### Task 5: Data Explorer Setup
 
@@ -550,7 +551,7 @@ To give permissions for the Power BI reports to access the data sources:
 
 	![Validate Creds.](media/power-bi-report-8.png)
 	
-12. **Click** on the ADX Thermostat and Occupancy.
+12. **Click** on the dataset "ADX Thermostat and Occupancy".
 
 13. **Expand** Data source credentials.
 
