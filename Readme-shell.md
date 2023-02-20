@@ -1,4 +1,4 @@
-# MIDP DREAM Demo in a Box Setup Guide
+# Analytics in MIDP DREAM Demo including Azure Synapse Link for Azure Cosmos DB Script DREAM Demo in a Box Setup Guide
 
 ## What is it?
 DREAM Demos in a Box (DDiB) are packaged Industry Scenario DREAM Demos with ARM templates (with a demo web app, Power BI reports, Synapse resources, AML Notebooks etc.) that can be deployed in a customer’s subscription using the CAPE tool in a few hours.  Partners can also deploy DREAM Demos in their own subscriptions using DDiB.
@@ -65,6 +65,8 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
    - Microsoft.StreamAnalytics 
    - Microsoft.EventHub 
    - Microsoft.Media.MediaServices
+   - Microsoft.Databricks
+   - Microsoft.Kusto
 * You can run only one deployment at any point in time and need to wait for its completion. You should not run multiple deployments in parallel as that will cause deployment failures.
 * Select a region where the desired Azure Services are available. If certain services are not available, deployment may fail. See [Azure Services Global Availability](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=all) for understanding target service availability. (consider the region availability for Synapse workspace, Iot Central and cognitive services while choosing a location)
 * Do not use any special characters or uppercase letters in the environment code. Also, do not re-use your environment code.
@@ -147,7 +149,7 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 
 	![Switch Historical data analysis on.](media/power-bi-6.png)
 	
-11. **Enter** ‘ADX Miami and San’ as dataset name and **enter** the column names in “values from stream” option from list below  and **click** on create button: 
+11. **Enter** ‘Real-time ADX Miami and San Diego’ as dataset name and **enter** the column names in “values from stream” option from list below  and **click** on create button: 
 
 	| Field Name                        	| Type     |
 	|---------------------------------------|----------|
@@ -176,7 +178,7 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 	
 	![Create new streaming dataset.](media/power-bi-7.png)
 
-12. **Copy** the push url of dataset ‘ADX Miami and San’ and **paste** it in a notepad for later use.
+12. **Copy** the push url of dataset ‘Real-time ADX Miami and San Diego’ and **paste** it in a notepad for later use.
 
 	![Provide the Push Url.](media/power-bi-8.png)
 	
@@ -234,7 +236,7 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
 
 1. **Open** this link in a new tab of the same browser that you are currently in: 
 	
-	<a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2FAzure-Analytics-and-AI-Engagement%2Fretail2.0%2Fretail%2Fmain-template.json' target='_blank'><img src='http://azuredeploy.net/deploybutton.png' /></a>
+	<a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2FAzure-Analytics-and-AI-Engagement%2Fmidp-with-cosmos%2FmidpCosmos%2FmainTemplate.json' target='_blank'><img src='http://azuredeploy.net/deploybutton.png' /></a>
 
 2. On the Custom deployment form, **select** your desired Subscription.
 
@@ -358,13 +360,16 @@ cd ./midpCosmos/midpCosmos
 
 	![Enter Resource Group name.](media/cloud-shell-14.png)
 
-18. After the complete script has been executed, you get to see the message "--Execution Complete--", now **go to** the Azure Portal and **search** for "app service" and **click** on the simulator app.
+18. After the complete script has been executed, you get to see the message "--Execution Complete--", now **go to** the Azure Portal and **search** for "app service" and **click** on the simulator app by the name "app-realtime-kpi-midp-.....".
 
 	![Enter Resource Group name.](media/cloud-shell-16.png)
 	
-19. **Click** on the browse button of the app service once, a new window will appear as shown in the below screenshot. Wait for the page to load and **close** the tab.
+19. **Click** on the browse button of the app service.
 
 	![Enter Resource Group name.](media/cloud-shell-17.png)
+
+20. A new window will appear as shown in the below screenshot. Wait for the page to load and **close** the tab.
+
 	![Enter Resource Group name.](media/cloud-shell-17.1.png)
 
 ### Task 5: Data Explorer Setup
@@ -577,7 +582,7 @@ To give permissions for the Power BI reports to access the data sources:
 
 	![Validate Creds.](media/power-bi-report-022.1.png)
 
-12. Similarly one can create the required KPIs and Graphs for the report.
+12. Similarly one can create the required KPIs and Graphs for both the realtime reports.
 		
 ### Follow these steps to create the Power BI dashboard
 
@@ -591,7 +596,7 @@ To give permissions for the Power BI reports to access the data sources:
 
       ![New Dashboard.](media/power-bi-report-10.png)
 
-4. **Name** the dashboard 'ADX Dashboard' and **click** 'create'.
+4. **Name** the dashboard 'CEO Dashboard May' and **click** 'create'.
 
 	![Create Dashboard further steps.](media/power-bi-report-11.png)
 
@@ -600,7 +605,7 @@ To give permissions for the Power BI reports to access the data sources:
 **Follow the below steps to change the dashboard theme:**
 
 6. **Open** the URL in a new browser tab to get JSON code for a custom theme:
-[https://raw.githubusercontent.com/microsoft/Azure-Analytics-and-AI-Engagement/retail/retail/CustomTheme.json](https://github.com/microsoft/Azure-Analytics-and-AI-Engagement/blob/retail2.0/retail/CustomTheme.json)
+[https://raw.githubusercontent.com/microsoft/Azure-Analytics-and-AI-Engagement/retail/retail/CustomTheme.json](https://github.com/microsoft/Azure-Analytics-and-AI-Engagement/blob/midp-with-cosmos/midpCosmos/CustomTheme.json)
 
 7. **Right click** anywhere in browser and **click** 'Save as...'.
 
@@ -626,11 +631,11 @@ To give permissions for the Power BI reports to access the data sources:
 
 **Follow these steps to pin the report to the Power BI dashboard:**
 
-15. **Search** the report 'Occupancy' and then **click** on the report to open it.
+15. **Search** the report 'CDP Vision Report' and then **click** on the report to open it.
 
 	![Create Dashboard further steps.](media/power-bi-report-12.png)
 
-16. Inside the report 'Occupancy' **click** on 'Edit' at the top of the right corner.
+16. Inside the report 'CDP Vision Report' **click** on 'Edit' at the top of the right corner.
 
 	![Select Pillar 1 before.](media/power-bi-report-13.png)
 
@@ -642,7 +647,7 @@ To give permissions for the Power BI reports to access the data sources:
 
 19. **Select** the 'Existing Dashboard' radio button.
 
-20. **Select** the existing dashboard 'ADX Dashboard' and **click** on the 'Pin' button.
+20. **Select** the existing dashboard 'CEO Dashboard May' and **click** on the 'Pin' button.
 
 	![Select Pin to dashboard.](media/power-bi-report-15.png)
 
@@ -650,7 +655,7 @@ To give permissions for the Power BI reports to access the data sources:
 
 	![Pin to dashboard further steps.](media/power-bi-report-16.png)
 	
-22. Similarly, **pin** the tiles for the 'Thermostat' to the Dashboard
+22. Similarly, **pin** the tiles for the 'CEO Dashboard May' to the Dashboard
 
 23. **Select** workpace created in [Task 2](#task-2-power-bi-workspace-creation) in the left pane.
 
@@ -660,7 +665,7 @@ To give permissions for the Power BI reports to access the data sources:
 
 	![Select Workspace.](media/power-bi-report-19.png)
 	
-25. **Click** on 'REtail 270821' page.
+25. **Click** on 'Page 3' page.
 
 26. **Click** on Edit.
 
@@ -670,13 +675,13 @@ To give permissions for the Power BI reports to access the data sources:
 
 	![Hover and Click.](media/power-bi-report-21.png)
 	
-28. Select the ‘ADX Dashboard’ from existing dashboard list and **click** on pin.
+28. Select the ‘CEO Dashboard May’ from existing dashboard list and **click** on pin.
 	
 	![Hover and Click.](media/power-bi-report-22.png)
 
 29. Similarly pin rest of the images from different tabs of the ‘Dashboard-Images’ report.
 	
-30. **Go back** to the ‘ADX Dashboard’ dashboard.
+30. **Go back** to the ‘CEO Dashboard May’ dashboard.
 
 	![Go back to Dashboard.](media/power-bi-report-24.png)
 	
@@ -700,119 +705,31 @@ To hide title and subtitle for all the **images** that you have pined above. Ple
 	
 	![Resize and Rearrange.](media/power-bi-report-27.png)
 	
-37. Similarly pin left image tiles from ‘Dashboard-Images’ of chicklets report to the ADX Dashboard.
+37. Similarly pin left image tiles from ‘Dashboard-Images’ of chicklets report to the "CEO Dashboard May" Dashboard.
 
 38. **Resize** and **rearrange** the left images tiles as shown in the screenshot. Resize the KPI tile to 1x2. Resize the Deep Dive to 1x4. Resize the logo to 1x1 size; resize other vertical tiles to 2x1 size.  
 
 	![Resize and Rearrange again.](media/power-bi-report-28.png)
-	
-**How to add Video in Dashboard:**
 
-39. In the dashboard, **Select** Edit > Add Tiles 
-
-	![Validate Creds.](media/power-bi-report-057.png)
-	
-	![Validate Creds.](media/power-bi-report-058.png)
-	
-40. From the Add a tile Window, **Select** Web content and Next.
-
-	![Validate Creds.](media/power-bi-report-059.png)
-	
-41. Add information to the Web content tile window.
-
-42. Add Display Title, Subtitle.
-
-43. For the embedded code, **goto** storage account from the portal, go to the 'video' container and **click** on the video 'final_spatial_analysis_video_1.mp4', now **click** on the copy button for copying the video url, and finally replace the url with 'URL' in the given embedded code given below.
-	
-	```
-	<video controls loop width="100%" ><source src=URL type="video/mp4">
-	```
-	
-	![Validate Creds.](media/power-bi-report-061.png)
-	
-44. **Copy** the whole Embed code with replaced 'URL' value. 
-
-45. **Paste** the Embed code and Select Apply. 
-
-46. On the Dashboard resize, move the content as needed.
-
-	![Validate Creds.](media/power-bi-report-060.png)
-
-47. The Dashboard **ADX Dashboard** should finally look like this. Table in following row indicates which KPI’s need to be pinned from which report to achieve this final look.
+39. The Dashboard **CEO Dashboard May** should finally look like this. Table in following row indicates which KPI’s need to be pinned from which report to achieve this final look.
 	
 	![Final Look.](media/power-bi-report-38.png)
 
-48. **Refer** to this table while pinning rest of the tiles to the dashboard.
+40. **Refer** to this table while pinning rest of the tiles to the dashboard.
 
 	![Table.](media/power-bi-table-6.png)
 
-49. Here is the list of Dashboards you have to create for Retail and the report to migrate to prod environment. You will see the necessary details for the same below. You must refer to the [Excel](https://github.com/microsoft/Azure-Analytics-and-AI-Engagement/blob/retail2.0/retail/KPIS%20Dashboards%20mapping%20Retail%202.0.xlsx) file for pinning the tiles to the dashboard.
+41. Here is the list of Dashboards you have to create for Retail and the report to migrate to prod environment. You will see the necessary details for the same below. You must refer to the [Excel](https://github.com/microsoft/Azure-Analytics-and-AI-Engagement/blob/midp-with-cosmos/midpCosmos/Dashboard%20Mapping.xlsx) file for pinning the tiles to the dashboard.
 
 	![Final Look.](media/power-bi-report-33.png)
 
-50. **CEO Dashboard - May** should look like this. Following are the details of tiles for the same.
+42. **CEO Dashboard - Dec** should look like this. Following are the details of tiles for the same.
 
 	![Final Look.](media/power-bi-report-32.png)
 	
-51. **Refer** to this table while pinning rest of the tiles to the dashboard.
+43. **Refer** to this table while pinning rest of the tiles to the dashboard.
 
 	![Table.](media/power-bi-table-1.png)
-
-52. **CEO Dashboard - Sep** should look like this. Following are the details of tiles for the same.
-
-	![Final Look.](media/power-bi-report-34.png)
-	
-53. **Refer** to this table while pinning rest of the tiles to the dashboard.	
-
-	![Table.](media/power-bi-table-2.png)
-
-54. **CEO Dashboard - Oct** should look like this. Following are the details of tiles for the same.
-	
-	![Final Look.](media/power-bi-report-35.png)
-	
-55. **Refer** to this table while pinning rest of the tiles to the dashboard.	
-
-	![Table.](media/power-bi-table-3.png)
-
-56. **CEO Dashboard - Nov** Dashboard should look like this. 
-
-	![Final Look.](media/power-bi-report-36.png)
-	
-57. **Refer** to this table while pinning rest of the tiles to the dashboard.
-
-	![Table.](media/power-bi-table-4.png)
-	
-58. **CEO Dashboard - Dec** Dashboard should look like this.
-
-	![Final Look.](media/power-bi-report-37.png)
-	
-59. **Refer** to this table while pinning rest of the tiles to the dashboard.
-
-	![Table.](media/power-bi-table-5.png)
-	
-60. **ESG Dashboard** Dashboard should look like this.
-
-	![Final Look.](media/power-bi-report-39.png)
-	
-61. **Refer** to this table while pinning rest of the tiles to the dashboard.
-
-	![Table.](media/power-bi-table-7.png)
-	
-62. **Finance Dashboard** Dashboard should look like this.
-
-	![Final Look.](media/power-bi-report-40.png)
-
-63. **Refer** to this table while pinning rest of the tiles to the dashboard.
-
-	![Table.](media/power-bi-table-8.png)
-	
-64. **VP Customer Experience Dashboard** Dashboard should look like this.
-
-	![Final Look.](media/power-bi-report-41.png)
-
-65. **Refer** to this table while pinning rest of the tiles to the dashboard.
-
-	![Table.](media/power-bi-table-9.png)
 
 ### Updating Dashboard and Report Ids in Web app
 
@@ -820,7 +737,7 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 
 1. **Navigate** to your Power BI workspace.
 
-2. **Click** on one of the dashboards you created. Eg. ADX Dashboard.
+2. **Click** on one of the dashboards you created. Eg. CEO Dashboard May.
 
 	![Navigate and Click.](media/power-bi-report-24.png)
 
@@ -841,7 +758,7 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 8. **Enter** the following path:  
 	
 	```
-	midp/midp/midpdemo-app/wwwroot/config-poc.js
+	midpCosmos/midpCosmos/midpcosmos-demo-app/wwwroot/config-poc.js
 	```
 
 9. **Click** Download button.
@@ -856,54 +773,62 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 
 12. **Paste** the dashboard id you copied earlier between the double quotes of key ‘CEO Dashboard - May’.
 
-13. **Save** the changes to the file.
+13. Similarly repeat step #12 according to the following mapping:
+
+	| Field Name                        	| Type     |
+	|---------------------------------------|----------|
+	| CEODashboardMayDashboardID 			| CEO Dashboard May |
+	| CEODashboardAfterDashboardID				| CEO Dashboard Dec |
+	| RealTimeInStoreAnalyticsReportID				| Realtime In Store Analytics |
+
+14. **Save** the changes to the file.
 
 	![Edit paste and save.](media/updating-powerbi-5.png)
 
-14. **Navigate** to azure portal.
+15. **Navigate** to azure portal.
 
-15. **Open** the Azure Cloud Shell by selecting its icon from the top toolbar.
+16. **Open** the Azure Cloud Shell by selecting its icon from the top toolbar.
 
 	![Navigate and Open.](media/updating-powerbi-6.png)
 
-16. **Click** upload/download button.
+17. **Click** upload/download button.
 
-17. **Click** upload.
+18. **Click** upload.
 
-18. **Select** the config-poc.js file you just updated.
+19. **Select** the config-poc.js file you just updated.
 
-19. **Click** open.
+20. **Click** open.
 
 	![Select and Click open.](media/updating-powerbi-7.png)
 
-20. **Execute** the following command in cloudshell:  
+21. **Execute** the following command in cloudshell:  
 	
 	```
-	cp config-poc.js ./midp/midp/midpdemo-app/wwwroot
+	cp config-poc.js ./midpcosmos/midpcosmos/midpcosmos-demo-app/wwwroot
 	```
 	
 	![Execute the command.](media/updating-powerbi-8.png)
 
-21.	**Execute** the following command in cloudshell: 
+22.	**Execute** the following command in cloudshell: 
 	
 	```
-	cd midp/midp/subscripts 
+	cd midpcosmos/midpcosmos/subscripts 
 	./updateWebAppSubScript.ps1
 	```
 	
 	![Execute the command.](media/updating-powerbi-9.png)
 
-22. From the Azure Cloud Shell, **copy** the authentication code. 
+23. From the Azure Cloud Shell, **copy** the authentication code. 
 
-23. **Click** on the link [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and a new browser window will launch.
+24. **Click** on the link [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and a new browser window will launch.
 
 	![Copy and Click on Link.](media/updating-powerbi-10.png)
 
-24. **Paste** the authentication code.
+25. **Paste** the authentication code.
 
-25. **Select** appropriate username when prompted.
+26. **Select** appropriate username when prompted.
 
-26. Wait for the script execution to complete.
+27. Wait for the script execution to complete.
 
 	![Paste select and wait.](media/updating-powerbi-11.png)
 
@@ -922,41 +847,41 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 	![Open and Click on Azure Cloud Shell.](media/authentication-5.png)
 
 **Execute** the Pause_Resume_script.ps1 script by executing the following command: 
-1. **Run** Command: 
+3. **Run** Command: 
 	```
-	cd "midp\midp"
+	cd "midpCosmos\midpCosmos"
 	```
 
-2. Then **run** the PowerShell script: 
+4. Then **run** the PowerShell script: 
 	```
 	./pause_resume_script.ps1 
 	```
 	
 	![Run the Powershell Script.](media/powershell.png)
 	
-3. From the Azure Cloud Shell, **copy** the authentication code
+5. From the Azure Cloud Shell, **copy** the authentication code
 	
 	![Copy the Authentication Code.](media/powershell-2.png)
 	
-4. Click on the link [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and a new browser window will launch.
+6. Click on the link [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and a new browser window will launch.
 	
-5. **Paste** the authentication code.
+7. **Paste** the authentication code.
 	
 	![Paste the authentication code.](media/authentication.png)
 	
-6. **Select** the same user that you used for signing into the Azure Portal in [Task 1](#task-1-create-a-resource-group-in-azure). 
+8. **Select** the same user that you used for signing into the Azure Portal in [Task 1](#task-1-create-a-resource-group-in-azure). 
 
-7. **Close** this window after it displays successful authentication message.
+9. **Close** this window after it displays successful authentication message.
 
 	![Select the same user and Close.](media/authentication-2.png)
 
-8. When prompted, **enter** the resource group name to be paused/resumed in the Azure Cloud Shell. Type the same resource group name that you created. 
+10. When prompted, **enter** the resource group name to be paused/resumed in the Azure Cloud Shell. Type the same resource group name that you created. 
 	
 	![Enter the Resource Group Name.](media/authentication-3.png)
 
-9. **Enter** your choice when prompted. Enter ‘P’ for **pausing** the environment or ‘R’ for **resuming** a paused environment. 
+11. **Enter** your choice when prompted. Enter ‘P’ for **pausing** the environment or ‘R’ for **resuming** a paused environment. 
 
-10. Wait for the script to finish execution. 
+11. Wait for the script to finish execution. 
 
 	![Enter your choice.](media/authentication-4.png)
 
@@ -974,7 +899,7 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 
 2. **Run** Command: 
 	```
-	cd "midp\midp"
+	cd "midpCosmos\midpCosmos"
 	```
 
 3. Then **run** the PowerShell script: 
@@ -984,7 +909,7 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 
 	![Run the Powershell Script.](media/authentication-6.png)
 
-4. You will now be prompted to **enter** the resource group name to be deleted in the Azure Cloud Shell. Type the same resource group name that you created in [Task 1](#task-1-create-a-resource-group-in-azure) - 'DDib-Retail-Lab'.
+4. You will now be prompted to **enter** the resource group name to be deleted in the Azure Cloud Shell. Type the same resource group name that you created in [Task 1](#task-1-create-a-resource-group-in-azure) - 'DDib-Midp-Lab'.
 
 5. You may be prompted to select a subscription in case your account has multiple subscriptions.
 
@@ -995,6 +920,6 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 	> - The subscription highlighted in yellow will be selected by default if you do not enter any disired subscription. Please select the subscription carefully, as it may break the execution further.
 	> - While you are waiting for processes to get completed in the Azure Cloud Shell window, you'll be asked to enter the code three times. This is necessary for performing installation of various Azure Services and preloading content in the Azure Synapse Analytics SQL Pool tables.
 
-6. You will now be prompted to **enter** the resource group name in the Azure Cloud Shell. Type the same resource group name that you created in [Task 1](#task-1-create-a-resource-group-in-azure). – 'DDiB-Retail-Lab'.
+6. You will now be prompted to **enter** the resource group name in the Azure Cloud Shell. Type the same resource group name that you created in [Task 1](#task-1-create-a-resource-group-in-azure). – 'DDiB-Midp-Lab'.
 
 	![Enter Resource Group name.](media/cloud-shell-14.png)
