@@ -1,4 +1,4 @@
-# Analytics in MIDP DREAM Demo including Azure Synapse Link for Azure Cosmos DB Script DREAM Demo in a Box Setup Guide
+# Analytics in Microsoft Intelligent Data Platform (MIDP) DREAM Demo DREAM Demo in a Box Setup Guide
 
 ## What is it?
 DREAM Demos in a Box (DDiB) are packaged Industry Scenario DREAM Demos with ARM templates (with a demo web app, Power BI reports, Synapse resources, AML Notebooks etc.) that can be deployed in a customer’s subscription using the CAPE tool in a few hours.  Partners can also deploy DREAM Demos in their own subscriptions using DDiB.
@@ -20,7 +20,7 @@ Customers can play,  get hands-on experience navigating through the demo environ
   
    > **Note**: Set up your demo environment at least two hours before your scheduled demo to make sure everything is working.
    
-# Copyright
+# Copyright - 2023
 
 © 2021 Microsoft Corporation. All rights reserved.   
 
@@ -42,15 +42,15 @@ THIS DEMO/LAB PROVIDES CERTAIN SOFTWARE TECHNOLOGY/PRODUCT FEATURES AND FUNCTION
   - [Task 2: Power BI Workspace creation](#task-2-power-bi-workspace-creation)
   - [Task 3: Deploy the ARM Template](#task-3-deploy-the-arm-template)
   - [Task 4: Run the Cloud Shell to provision the demo resources](#task-4-run-the-cloud-shell-to-provision-the-demo-resources)
-  - [Task 5: Data Explorer Setup](#task-7-data-explorer-setup)
-  - [Task 6: Azure Purview Setup](#task-8-azure-purview-setup)
-  - [Task 7: Power BI reports and dashboard creation](#task-9-power-bi-reports-and-dashboard-creation)
+  - [Task 5: Data Explorer Setup](#task-5-data-explorer-setup)
+  - [Task 6: Azure Purview Setup](#task-6-azure-purview-setup)
+  - [Task 7: Power BI reports and dashboard creation](#task-7-power-bi-reports-and-dashboard-creation)
   	- [Steps to validate the credentials for reports](#steps-to-validate-the-credentials-for-reports)
   	- [Steps to create realtime reports](#steps-to-create-realtime-reports)
   	- [Follow these steps to create the Power BI dashboard](#follow-these-steps-to-create-the-power-bi-dashboard)
   	- [Updating Dashboard and Report Ids in Web app](#updating-dashboard-and-report-ids-in-web-app)
-  - [Task 8: Pause or Resume script](#task-10-pause-or-resume-script)
-  - [Task 9: Clean up resources](#task-11-clean-up-resources)
+  - [Task 8: Pause or Resume script](#task-8-pause-or-resume-script)
+  - [Task 9: Clean up resources](#task-9-clean-up-resources)
 
 <!-- /TOC -->
 
@@ -412,7 +412,7 @@ cd ./midpCosmos/midpCosmos
 
 > **Note:** Firstly you should assign Reader permission to the Azure Purview account starting with name "purviewmidp..." for Cosmos Account, Synapse Workspace and Storage Account starting with name "stmidp...". Once the permission has been granted, proceed with the following steps.
 
-1. From Azure Portal, **search** for azure purview resource in the resource group and **click** on the resource.
+1. From Azure Portal, **search** for Azure purview resource in the resource group and **click** on the resource.
 
 	![Select Purview Resource.](media/purview-1.png)
 	
@@ -745,7 +745,7 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 	
 	![Copy the dashboard id.](media/updating-powerbi-2.png)
 
-4. **Navigate** to azure portal.
+4. **Navigate** to Azure Portal.
 
 5. **Open** the Azure Cloud Shell by selecting its icon from the top toolbar.
 
@@ -785,7 +785,7 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 
 	![Edit paste and save.](media/updating-powerbi-5.png)
 
-15. **Navigate** to azure portal.
+15. **Navigate** to Azure Portal.
 
 16. **Open** the Azure Cloud Shell by selecting its icon from the top toolbar.
 
@@ -909,7 +909,7 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 
 	![Run the Powershell Script.](media/authentication-6.png)
 
-4. You will now be prompted to **enter** the resource group name to be deleted in the Azure Cloud Shell. Type the same resource group name that you created in [Task 1](#task-1-create-a-resource-group-in-azure) - 'DDib-Midp-Lab'.
+4. You will now be prompted to **enter** the resource group name to be deleted in the Azure Cloud Shell. Type the same resource group name that you created in [Task 1](#task-1-create-a-resource-group-in-azure) - 'DDiB-Lab'.
 
 5. You may be prompted to select a subscription in case your account has multiple subscriptions.
 
@@ -920,6 +920,6 @@ By default, the web app will be provisioned with Gif placeholders for web app sc
 	> - The subscription highlighted in yellow will be selected by default if you do not enter any disired subscription. Please select the subscription carefully, as it may break the execution further.
 	> - While you are waiting for processes to get completed in the Azure Cloud Shell window, you'll be asked to enter the code three times. This is necessary for performing installation of various Azure Services and preloading content in the Azure Synapse Analytics SQL Pool tables.
 
-6. You will now be prompted to **enter** the resource group name in the Azure Cloud Shell. Type the same resource group name that you created in [Task 1](#task-1-create-a-resource-group-in-azure). – 'DDiB-Midp-Lab'.
+6. You will now be prompted to **enter** the resource group name in the Azure Cloud Shell. Type the same resource group name that you created in [Task 1](#task-1-create-a-resource-group-in-azure). – 'DDiB-Lab'.
 
 	![Enter Resource Group name.](media/cloud-shell-14.png)
